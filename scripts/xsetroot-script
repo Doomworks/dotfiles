@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Set xsetroot for dwm status bar
+while true; do
+    # Clock
+    clock=$(date '+%I:%M%p')
+    
+    # Battery Icon Calculator
+    batt_lvl=`acpi -b | grep -Po '[0-9]+(?=%)'`
+    if [ $batt_lvl -ge 95 ]
+    then
+        batt_icon=$(echo -e "\uE214")
+    elif [ $batt_lvl -ge 65 ]
+    then
+        batt_icon=$(echo -e "\uE213")
+    elif [ $batt_lvl -ge 20 ]
+    then
+        batt_icon=$(echo -e "\uE212")
+    else [ $batt_lvl -le 10 ]
+        batt_icon=$(echo -e "\uE211")
+    fi
+    
+    # AC Power Indicator
+    ac_conn=`acpi -a | grep -o -e "on-line" -e "off-line"`
+    if [ $ac_conn = "on-line" ]
+    then
+        ac_icon=$(echo -e "\uE215")
+    else
+        ac_icon=$(echo "")
+    fi
+
+    # Volume Indicator
+    vol="$(echo -e "\uE04E")$(amixer get Master | tail -1 | sed 's/.*\[\([0-9]*%\)\].*/\1/')"
+
+    # Music Status
+    music=$(bash ~/scripts/music)
+
+    # Setting XSetRoot to diplay the info
+    xsetroot -name "$(echo -e "\uE1AC")$vol$(echo -e "\uE1AC")$batt_icon$ac_icon$(echo -e "\uE1AC")$(echo -e "\uE00F")$(checkupdates | wc -l)$(echo -e "\uE1AC")$clock"
+    sleep 2s
+done & 
