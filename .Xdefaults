@@ -1,0 +1,49 @@
+URxvt.scrollBar: false
+URxvt.internalBorder: 1
+URxvt.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
+#URxvt.font: -wuncon-siji-medium-r-normal--10-*-*-*-*-*-*-*
+URxvt.letterSpace: 0
+
+! --- Colours ---
+
+URxvt*background: #060b11
+URxvt*foreground: #dddddd
+
+! Normal
+! color0	black
+! color1	red
+! color2	green
+! color3	yellow
+! color4	blue
+! color5	magenta
+! color6	cyan
+! color7	white
+
+! Light
+! color8	black
+! color9	red
+! color10	green
+! color11	yellow
+! color12	blue
+! color13	magenta
+! color14	cyan
+! color15	white	
+
+
+urxvt*color0: #000000
+urxvt*color1: #89282a
+urxvt*color2: #2a8928
+urxvt*color3: #898828
+urxvt*color4: #282a89
+urxvt*color5: #882889
+urxvt*color6: #288988
+urxvt*color7: #ddddd
+
+urxvt*color8: #262626
+urxvt*color9: #bf383a
+urxvt*color10: #2abf38
+urxvt*color11: #bfbd38
+urxvt*color12: #383abf
+urxvt*color13: #bd38bf
+urxvt*color14: #38bfbd
+urxvt*color15: #f0f0f0
