@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+
+import imaplib
+import json
+from os import environ
+from pathlib import Path
+
+
+CONFIG_DIR = Path(environ['XDG_CONFIG_HOME'], 'mail')
+
+with open(CONFIG_DIR / 'config.json') as f:
+    config = json.load(f)
+
+    MAIL_USR = config['mail_usr']
+    MAIL_PASS = config['mail_pass']
+
+mail = imaplib.IMAP4_SSL('mail.doomworks.net', '993')
+mail.login(MAIL_USR, MAIL_PASS)
+mail.select()
+
+label_none = ""
+label_new = ""
+
+data = len(mail.search(None, 'UNSEEN')[1][0].split())
+
+if data == 0:
+    label = label_none
+    print(label)
+else:
+    label = label_new
+    print(label, data)
