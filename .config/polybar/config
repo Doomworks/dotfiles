@@ -1,0 +1,203 @@
+[colors]
+1 = #3a3335
+2 = #30343f
+3 = #fafaff
+4 = #e8dab2
+5 = #eb5e55
+
+[global/wm]
+margin-top = 2
+margin-bottom = 2
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+
+throttle-input-for = 30
+
+screenchange-reload = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[bar/top]
+;monitor = ${env:MONITOR}
+monitor-strict = true
+dpi =  96
+bottom = false
+width = 100%
+height = 20
+background = ${colors.1}
+foreground = ${colors.3}
+
+spacing = 1
+padding-left = 0
+padding-right = 1 
+module-margin-left = 1
+module-margin-right = 1
+
+border-top-size = 0
+border-bottom-size = 0
+
+font-0 = Tamzen:pixelsize=12;2
+font-1 = FontAwesome:pixelsize=10;2
+
+modules-left = 
+modules-center = i3
+modules-right = volume mail date
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+;pin-workspaces = true
+
+
+label-mode-padding = 1
+label-mode-foreground = ${colors.4}
+label-mode-background = ${colors.2}
+
+label-focused = %icon%
+label-focused-foreground = ${colors.4}
+label-focused-background = ${colors.2}
+label-focused-padding = 2
+
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+label-visible = %icon% %name%
+label-visible-padding = 2
+
+label-urgent = %icon%
+label-urgent-background = ${colors.5}
+label-urgent-padding = 2
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+time = "%I%{F#92}:%M%{F-} %{F#49}%p%{F-}"
+
+;format-prefix = 
+format-prefix-foreground = ${colors.2}
+format-underline = #0a6cf5
+
+label = %time%
+
+[module/volume]
+type = internal/volume
+
+label-volume = %percentage%
+label-volume-forground = ${colors.3}
+format-volume = <ramp-volume><label-volume>
+format-volume-padding = 1
+
+label-muted = 
+format-muted-padding = 1
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/mail]
+type = custom/script
+exec = $HOME/scripts/chkmail
+interval = 5
+left-click = echo xdg-open https://mail.doomworks.net
+
+
+[bar/bottom]
+monitor-strict = true
+dpi =  96
+bottom = true
+width = 100%
+height = 20
+background = ${colors.1}
+foreground = ${colors.3}
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Tamzen:pixelsize=12;2
+font-1 = FontAwesome:pixelsize=10;2
+
+modules-left = powermenu mail
+modules-center = mpd
+modules-right = pkgupdates ip publicip
+
+[module/mpd]
+type = internal/mpd
+
+label-song = " %artist% - %title%"
+format-online = "<label-song>"
+
+label-song-maxlen = 40
+label-song-ellipsis = true
+label-offline = offline
+
+toggle-on-foreground = ${colors.4}
+toggle-off-foreground = #66
+
+[module/ip]
+type = custom/script
+exec = $HOME/scripts/ip 
+interval = 30
+format-prefix = " "
+
+[module/publicip]
+type = custom/script
+exec = wget -qO- ipinfo.io/ip
+interval = 1000
+format-prefix = " "
+
+[module/pkgupdates]
+type = custom/script
+exec = $HOME/scripts/pkgupdates
+interval = 1000
+
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 2
+
+label-open = 
+label-open-foreground = ${colors.5}
+label-close =  cancel
+label-close-foreground = ${colors.3}
+label-separator = |
+label-separator-foreground = ${colors.2}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+vim:ft=dosini
