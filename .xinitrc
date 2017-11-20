@@ -23,9 +23,6 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# Xrandr setup
-bash ~/scripts/mon-switch.sh
-
 # Add fonts
 xset +fp /usr/share/fonts/local
 xset fp rehash
@@ -40,12 +37,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # Set background on wm start
-feh ~/.wallpapers/Cliff-4032x3024.jpeg --bg-fill
+feh ~/.wallpapers/peticur-beach.jpg --bg-fill
 
-# Set xsetroot for dwm status bar
-bash ~/scripts/xsetroot
-
-exec dwm
+exec i3
 
 #Old WMs
 #exec openbox-session
+#exec dwm
