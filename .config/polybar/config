@@ -138,7 +138,7 @@ module-margin-right = 2
 font-0 = Tamzen:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = powermenu
+modules-left = fshome fsfornax
 modules-center = mpd
 modules-right = pkgupdates ip publicip
 
@@ -150,10 +150,24 @@ format-online = "<label-song>"
 
 label-song-maxlen = 40
 label-song-ellipsis = true
-label-offline = offline
+label-song-offline = offline
 
 toggle-on-foreground = ${colors.4}
 toggle-off-foreground = #66
+
+[module/fshome]
+type = internal/fs
+mount-0 = /home
+interval = 10
+format-mounted = <label-mounted>
+label-mounted = " %percentage_used%%/%total%"
+
+[module/fsfornax]
+type = internal/fs
+mount-0 = /mnt/Fornax
+interval = 10
+format-mounted = <label-mounted>
+label-mounted = " %percentage_used%%/%total%"
 
 [module/ip]
 type = custom/script
@@ -171,33 +185,5 @@ format-prefix = " "
 type = custom/script
 exec = $HOME/scripts/pkgupdates
 interval = 1000
-
-
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 2
-
-label-open = 
-label-open-foreground = ${colors.5}
-label-close =  cancel
-label-close-foreground = ${colors.3}
-label-separator = |
-label-separator-foreground = ${colors.2}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 vim:ft=dosini
