@@ -99,10 +99,9 @@ time = "%I%{F#92}:%M%{F-} %{F#49}%p%{F-}"
 [module/volume]
 type = internal/volume
 
-label-volume = %percentage%
+label-volume = %percentage%%
 label-volume-forground = ${colors.3}
 format-volume = <ramp-volume><label-volume>
-format-volume-padding = 1
 
 label-muted = 
 format-muted-padding = 1
