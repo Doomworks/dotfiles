@@ -32,7 +32,7 @@ foreground = ${colors.3}
 
 spacing = 1
 padding-left = 0
-padding-right = 1 
+padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
@@ -42,7 +42,7 @@ border-bottom-size = 0
 font-0 = Tamzen:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = 
+modules-left =
 modules-center = i3
 modules-right = volume mail date
 
@@ -89,14 +89,9 @@ ws-icon-9 = 10;10
 [module/date]
 type = internal/date
 interval = 1
+label = %time%
 
 time = "%I%{F#92}:%M%{F-} %{F#49}%p%{F-}"
-
-;format-prefix = 
-format-prefix-foreground = ${colors.2}
-format-underline = #0a6cf5
-
-label = %time%
 
 [module/volume]
 type = internal/volume
@@ -146,11 +141,12 @@ modules-right = pkgupdates ip publicip
 type = internal/mpd
 
 label-song = " %artist% - %title%"
+label-offline = "  offline"
 format-online = "<label-song>"
+format-offline = "<label-offline>"
 
 label-song-maxlen = 40
 label-song-ellipsis = true
-label-song-offline = offline
 
 toggle-on-foreground = ${colors.4}
 toggle-off-foreground = #66
@@ -160,18 +156,24 @@ type = internal/fs
 mount-0 = /home
 interval = 10
 format-mounted = <label-mounted>
+format-unmounted = <label-unmounted>
 label-mounted = " %percentage_used%%/%total%"
+label-unmounted = " Something has gone very wrong"
+label-unmounted-forground = ${colors.5}
 
 [module/fsfornax]
 type = internal/fs
 mount-0 = /mnt/Fornax
 interval = 10
 format-mounted = <label-mounted>
+format-unmounted = <label-unmounted>
 label-mounted = " %percentage_used%%/%total%"
+label-unmounted = " Fornax"
+label-unmounted-foreground = ${colors.5}
 
 [module/ip]
 type = custom/script
-exec = $HOME/scripts/ip 
+exec = $HOME/scripts/ip
 interval = 30
 format-prefix = " "
 
