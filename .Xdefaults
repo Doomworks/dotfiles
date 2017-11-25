@@ -1,49 +1,44 @@
-URxvt.scrollBar: false
-URxvt.internalBorder: 1
-URxvt.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
-#URxvt.font: -wuncon-siji-medium-r-normal--10-*-*-*-*-*-*-*
-URxvt.letterSpace: 0
-
-! --- Colours ---
-
-URxvt*background: #060b11
-URxvt*foreground: #dddddd
-
-! Normal
-! color0	black
-! color1	red
-! color2	green
-! color3	yellow
-! color4	blue
-! color5	magenta
-! color6	cyan
-! color7	white
-
-! Light
-! color8	black
-! color9	red
-! color10	green
-! color11	yellow
-! color12	blue
-! color13	magenta
-! color14	cyan
-! color15	white	
+URxvt*scrollBar: false
+URxvt*internalBorder: 1
+URxvt*font: -*-tamzenforpowerline-medium-*-*-*-14-*-*-*-*-*-*-*, \
+            -wuncon-siji-medium-r-normal--10-*-*-*-*-*-*-*, \
+            xft:FontAwesome-11,
+URxvt*letterSpace: 0
+URxvt*cursorBlink: true
 
 
-urxvt*color0: #000000
-urxvt*color1: #89282a
-urxvt*color2: #2a8928
-urxvt*color3: #898828
-urxvt*color4: #282a89
-urxvt*color5: #882889
-urxvt*color6: #288988
-urxvt*color7: #ddddd
+*.foreground:   #a8a19f
+*.background:   #1b1918
+*.cursorColor:  #a8a19f
 
-urxvt*color8: #262626
-urxvt*color9: #bf383a
-urxvt*color10: #2abf38
-urxvt*color11: #bfbd38
-urxvt*color12: #383abf
-urxvt*color13: #bd38bf
-urxvt*color14: #38bfbd
-urxvt*color15: #f0f0f0
+! black
+*.color0:       #1b1918
+*.color8:       #766e6b
+
+! red
+*.color1:       #f22c40
+*.color9:       #f22c40
+
+! green
+*.color2:       #5ab738
+*.color10:      #5ab738
+
+! yellow
+*.color3:       #d5911a
+*.color11:      #d5911a
+
+! blue
+*.color4:       #407ee7
+*.color12:      #407ee7
+
+! magenta
+*.color5:       #6666ea
+*.color13:      #6666ea
+
+! cyan
+*.color6:       #00ad9c
+*.color14:      #00ad9c
+
+! white
+*.color7:       #a8a19f
+*.color15:      #f1efee
