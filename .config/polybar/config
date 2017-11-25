@@ -4,6 +4,9 @@
 3 = #fafaff
 4 = #e8dab2
 5 = #eb5e55
+6 = #f5cd00
+7 = #29f500
+8 = #00a5a5
 
 [global/wm]
 margin-top = 2
@@ -44,7 +47,7 @@ font-1 = FontAwesome:pixelsize=10;2
 
 modules-left =
 modules-center = i3
-modules-right = volume mail date
+modules-right = volume mail battery date
 
 [module/i3]
 type = internal/i3
@@ -111,9 +114,37 @@ ramp-volume-2 = 
 [module/mail]
 type = custom/script
 exec = $HOME/scripts/chkmail
+label-foreground = ${colors.8}
 interval = 5
 click-left = xdg-open https://mail.doomworks.net
 
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = AC
+
+full-at = 96
+label-full = 
+label-full-foreground = ${colors.6}
+
+format-charging = <animation-charging><label-charging>
+animation-charging-0 = 
+animation-charging-0-foreground = ${colors.6}
+animation-charging-1 = 
+animation-charging-framerate = 700
+
+format-discharging = <ramp-capacity><label-discharging>
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.5}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.5}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.6}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.7}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.7}
 
 [bar/bottom]
 monitor-strict = true
@@ -130,7 +161,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Tamzen:pixelsize=12;2
+font-0 = TamzenForPowerline:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
 modules-left = fshome fsfornax
@@ -140,16 +171,17 @@ modules-right = pkgupdates ip publicip
 [module/mpd]
 type = internal/mpd
 
+host = 127.0.0.1
+port = 6600
+
 label-song = " %artist% - %title%"
+label-song-background = ${colors.2}
 label-offline = "  offline"
 format-online = "<label-song>"
 format-offline = "<label-offline>"
 
-label-song-maxlen = 40
+label-song-maxlen = 50
 label-song-ellipsis = true
-
-toggle-on-foreground = ${colors.4}
-toggle-off-foreground = #66
 
 [module/fshome]
 type = internal/fs
