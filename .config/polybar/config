@@ -113,7 +113,6 @@ ramp-volume-2 = 
 [module/mail]
 type = custom/script
 exec = $HOME/scripts/chkmail
-label-foreground = ${colors.8}
 interval = 5
 click-left = xdg-open https://mail.doomworks.net
 
@@ -175,6 +174,7 @@ port = 6600
 
 label-song = " %artist% - %title%"
 label-song-background = ${colors.2}
+label-song-foreground = ${colors.4}
 label-offline = "  offline"
 format-online = "<label-song>"
 format-offline = "<label-offline>"
