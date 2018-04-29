@@ -9,7 +9,7 @@ URxvt*cursorBlink: true
 
 *.foreground:   #a8a19f
 *.background:   #1b1918
-*.cursorColor:  #a8a19f
+!*.cursorColor:  #a8a19f
 
 ! black
 *.color0:       #1b1918

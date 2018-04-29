@@ -44,10 +44,12 @@ border-bottom-size = 0
 
 font-0 = Tamzen:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
+;font-2 = FontAwesome5Brands:pixlesize=10;2
 
 modules-left =
 modules-center = i3
 modules-right = volume mail battery date
+tray-position = left
 
 [module/i3]
 type = internal/i3
