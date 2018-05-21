@@ -46,10 +46,10 @@ font-0 = Tamzen:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
 ;font-2 = FontAwesome5Brands:pixlesize=10;2
 
-modules-left =
-modules-center = i3
-modules-right = volume mail battery date
-tray-position = left
+modules-left = i3
+modules-center = date 
+modules-right = volume mail battery 
+;tray-position = left
 
 [module/i3]
 type = internal/i3
@@ -166,7 +166,7 @@ font-1 = FontAwesome:pixelsize=10;2
 
 modules-left = fshome fsfornax
 modules-center = mpd
-modules-right = pkgupdates ip publicip
+modules-right = pkgupdates  ip
 
 [module/mpd]
 type = internal/mpd
@@ -177,7 +177,7 @@ port = 6600
 label-song = " %artist% - %title%"
 label-song-background = ${colors.2}
 label-song-foreground = ${colors.4}
-label-offline = "  offline"
+label-offline = 
 format-online = "<label-song>"
 format-offline = "<label-offline>"
 
@@ -201,8 +201,8 @@ interval = 10
 format-mounted = <label-mounted>
 format-unmounted = <label-unmounted>
 label-mounted = " %percentage_used%%/%total%"
-label-unmounted = " Fornax"
-label-unmounted-foreground = ${colors.5}
+label-unmounted = 
+;label-unmounted-foreground = ${colors.5}
 
 [module/ip]
 type = custom/script
