@@ -29,7 +29,7 @@ monitor-strict = true
 dpi =  96
 bottom = false
 width = 100%
-height = 20
+height = 18
 background = ${colors.1}
 foreground = ${colors.3}
 
@@ -47,8 +47,8 @@ font-1 = FontAwesome:pixelsize=10;2
 ;font-2 = FontAwesome5Brands:pixlesize=10;2
 
 modules-left = i3
-modules-center = date 
-modules-right = volume mail battery 
+modules-center =
+modules-right = volume mail battery date
 ;tray-position = left
 
 [module/i3]
@@ -151,7 +151,7 @@ monitor-strict = true
 dpi =  96
 bottom = true
 width = 100%
-height = 20
+height = 18
 background = ${colors.1}
 foreground = ${colors.3}
 
@@ -171,13 +171,13 @@ modules-right = pkgupdates  ip
 [module/mpd]
 type = internal/mpd
 
-host = 127.0.0.1
+host = localhost
 port = 6600
 
 label-song = " %artist% - %title%"
 label-song-background = ${colors.2}
 label-song-foreground = ${colors.4}
-label-offline = 
+label-offline =
 format-online = "<label-song>"
 format-offline = "<label-offline>"
 
@@ -201,7 +201,7 @@ interval = 10
 format-mounted = <label-mounted>
 format-unmounted = <label-unmounted>
 label-mounted = " %percentage_used%%/%total%"
-label-unmounted = 
+label-unmounted =
 ;label-unmounted-foreground = ${colors.5}
 
 [module/ip]
@@ -216,9 +216,9 @@ exec = wget -qO- ipinfo.io/ip
 interval = 1000
 format-prefix = " "
 
-[module/pkgupdates]
-type = custom/script
-exec = $HOME/scripts/pkgupdates
-interval = 1000
+;[module/pkgupdates]
+;type = custom/script
+;exec = $HOME/scripts/pkgupdates
+;interval = 1000
 
 vim:ft=dosini
