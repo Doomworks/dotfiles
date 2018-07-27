@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/cory/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 # oh-my-zsh settings
 ZSH_THEME="agnoster"
 DISABLE_AUTO_UPDATE="true"
@@ -30,7 +30,7 @@ DEFAULT_USER='cory'
 alias love='/Applications/love.app/Contents/MacOS/love'
 alias emacs='emacs -nw'
 alias gitpull='sh ~/scripts/git_mergeandff.sh'
-figlet "Sol"
-echo "Welcome /home, Cory"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+figlet 'Sirius'
+echo 'Welcome /home, Cory'
+export PATH=$HOME/.rbenv/bin:/opt/local/bin:/opt/local/sbin:$PATH
 eval "$(rbenv init -)"
