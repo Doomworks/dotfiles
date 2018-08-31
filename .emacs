@@ -55,6 +55,7 @@
 (cory-reinstall-packages-core)
 
 ;; Modes and Themes
+(use-package rustic :ensure t)
 (use-package powerline :ensure t)
 (use-package pug-mode :ensure t)
 (use-package json-mode
