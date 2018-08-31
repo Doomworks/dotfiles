@@ -5,21 +5,9 @@ ZSH_THEME="agnoster"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(sudo sublime git)
 source $ZSH/oh-my-zsh.sh
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -27,10 +15,35 @@ export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/"
 # User Settings
 DEFAULT_USER='cory'
-alias love='/Applications/love.app/Contents/MacOS/love'
+case $( uname -s ) in
+    Darwin) alias love='/Applications/love.app/Contents/MacOS/love';;
+    *)      alias love='$HOME/.love/love';;
+esac
 alias emacs='emacs -nw'
 alias gitpull='sh ~/scripts/git_mergeandff.sh'
-figlet 'Sirius'
-echo 'Welcome /home, Cory'
+# Show correct name on each system
+case $( hostname ) in
+    Sol.local) figlet 'Sol'
+               echo 'Welcome /home,' $USER
+               ;;
+    Sirius)    figlet 'Sirius'
+               echo 'Enjoy the surroundings'
+               ;;
+    Naos)      figlet 'Naos'
+               echo 'Greetings '$USER', this vessel is at your command'
+               ;;
+    Rigel)     figlet 'Rigel'
+               echo $USER'? Its odd to see you this far out...'
+               ;;
+    Fornax)    figlet 'Fornax'
+               echo 'Hello '$USER', what services do you require today?'
+               ;;
+    Centarus)  figlet 'Centarus'
+               echo 'Enjoy your stay at out data archive $USER, we have many interesting files'
+               ;;
+    *)         figlet 'System Unknown'
+              echo '[Error]{No system data}<Nav marker dropped, awaiting response>'
+              ;;
+esac
 export PATH=$HOME/.rbenv/bin:/opt/local/bin:/opt/local/sbin:$PATH
 eval "$(rbenv init -)"
