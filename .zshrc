@@ -21,10 +21,14 @@ case $( uname -s ) in
 esac
 alias emacs='emacs -nw'
 alias gitpull='sh ~/scripts/git_mergeandff.sh'
+alias üwidget='cd ~/Library/Application\ Support/Übersicht/widgets'
 # Show correct name on each system
 case $( hostname ) in
     Sol.local) figlet 'Sol'
                echo 'Welcome /home,' $USER
+               ;;
+    Vega)      figlet 'Vega'
+               echo 'Greetings Navigator' $USER
                ;;
     Sirius)    figlet 'Sirius'
                echo 'Enjoy the surroundings'
