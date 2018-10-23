@@ -7,6 +7,7 @@
 6 = #f5cd00
 7 = #29f500
 8 = #00a5a5
+9 = #1b1918
 
 [global/wm]
 margin-top = 2
@@ -29,8 +30,8 @@ monitor-strict = true
 dpi =  96
 bottom = false
 width = 100%
-height = 18
-background = ${colors.1}
+height = 25
+background = ${colors.9}
 foreground = ${colors.3}
 
 spacing = 1
@@ -48,8 +49,7 @@ font-1 = FontAwesome:pixelsize=10;2
 
 modules-left = i3
 modules-center =
-modules-right = volume mail battery date
-;tray-position = left
+modules-right = cpu volume mail battery clock date
 
 [module/i3]
 type = internal/i3
@@ -79,10 +79,10 @@ label-urgent = %icon%
 label-urgent-background = ${colors.5}
 label-urgent-padding = 2
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
 ws-icon-4 = 5;5
 ws-icon-5 = 6;6
 ws-icon-6 = 7;7
@@ -90,13 +90,16 @@ ws-icon-7 = 8;8
 ws-icon-8 = 9;9
 ws-icon-9 = 10;10
 
+[module/clock]
+type = custom/script
+interval = 1
+exec = $HOME/scripts/clock
 
 [module/date]
-type = internal/date
+type = custom/script
 interval = 1
-label = %time%
-
-time = "%I%{F#92}:%M%{F-} %{F#49}%p%{F-}"
+exec =  afiur -sd 1994-11-03
+format-prefix = " "
 
 [module/volume]
 type = internal/volume
@@ -152,7 +155,7 @@ dpi =  96
 bottom = true
 width = 100%
 height = 18
-background = ${colors.1}
+background = ${colors.9}
 foreground = ${colors.3}
 
 spacing = 1
@@ -164,25 +167,21 @@ module-margin-right = 2
 font-0 = TamzenForPowerline:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = fshome fsfornax
-modules-center = mpd
-modules-right = pkgupdates  ip
+modules-left = fshome pkgupdates
+modules-center = cmus-status
+modules-right = publicip
+tray-position = right
 
-[module/mpd]
-type = internal/mpd
 
-host = localhost
-port = 6600
-
-label-song = " %artist% - %title%"
-label-song-background = ${colors.2}
-label-song-foreground = ${colors.4}
-label-offline =
-format-online = "<label-song>"
-format-offline = "<label-offline>"
-
-label-song-maxlen = 50
-label-song-ellipsis = true
+[module/cmus-status]
+type = custom/script
+exec = $HOME/scripts/cmus-status.sh
+exec-if = cmus-remote -Q
+interval = 0.5
+scroll-up = cmus-remote -n
+scroll-down = cmus-remote -r
+click-left = ~/scripts/cmus-status.sh --toggle
+format-prefix = ""
 
 [module/fshome]
 type = internal/fs
@@ -193,16 +192,6 @@ format-unmounted = <label-unmounted>
 label-mounted = " %percentage_used%%/%total%"
 label-unmounted = " Something has gone very wrong"
 label-unmounted-forground = ${colors.5}
-
-[module/fsfornax]
-type = internal/fs
-mount-0 = /mnt/Fornax
-interval = 10
-format-mounted = <label-mounted>
-format-unmounted = <label-unmounted>
-label-mounted = " %percentage_used%%/%total%"
-label-unmounted =
-;label-unmounted-foreground = ${colors.5}
 
 [module/ip]
 type = custom/script
@@ -216,9 +205,10 @@ exec = wget -qO- ipinfo.io/ip
 interval = 1000
 format-prefix = " "
 
-;[module/pkgupdates]
-;type = custom/script
-;exec = $HOME/scripts/pkgupdates
-;interval = 1000
+[module/pkgupdates]
+type = custom/script
+exec = $HOME/scripts/pkgupdates
+interval = 1000
+click-left = bash $HOME/scripts/pkgupdates
 
 vim:ft=dosini
