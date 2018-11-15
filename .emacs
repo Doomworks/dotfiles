@@ -265,7 +265,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (arduino-mode stylus-mode json-mode ivy ivy-mode git magit evil-leader evil-escape editorconfig use-package markdown-mode evil ac-emoji))))
+    (lsp-rust lsp-mode evil-magit arduino-mode stylus-mode json-mode ivy ivy-mode git magit evil-leader evil-escape editorconfig use-package markdown-mode evil ac-emoji))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
