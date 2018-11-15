@@ -14,7 +14,7 @@ with open(CONFIG_DIR / 'config.json') as f:
     MAIL_USR = config['mail_usr']
     MAIL_PASS = config['mail_pass']
 
-mail = imaplib.IMAP4_SSL('mail.doomworks.net', '993')
+mail = imaplib.IMAP4_SSL('mail.hover.com', '993')
 mail.login(MAIL_USR, MAIL_PASS)
 mail.select()
 
