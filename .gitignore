@@ -1,0 +1,12 @@
+# os files
+.DS_store
+
+# cmus
+cmus/cache
+cmus/command-history
+cmus/search-history
+cmus/lib.pl
+cmus/playlist.pl
+
+# ignore socket files
+*.socket
