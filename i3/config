@@ -25,17 +25,12 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec rofi -show run
+bindsym $mod+c exec rofi -show ssh
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# Workspace Tags
-set $tag1 "1:"
-set $tag2 "2:"
-set $tag3 "3:"
-set $tag4 "4:"
 
 #Colours not previously found in file:
 client.focused #31353F #30353F #E8DBB3 #285577
@@ -53,20 +48,19 @@ hide_edge_borders smart
 
 # start programs
 exec dunst
-exec mopidy
-#exec telegram-desktop
+exec vivaldi-stable
 
 exec_always $HOME/.config/polybar/launch
 
 # assign programs to correct workspaces
-assign [class="^Beaker$"] → workspace 2
+assign [class="^Vivaldi$"] → workspace 2
 assign [class="^Slack$"] → workspace 4
-assign [class="^TelegramDesktop$"] → workspace 4
+
 
 # media keys
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPlay exec $HOME/scripts/mpc_toggle
+bindsym XF86AudioPrev exec cmus-remote -r
+bindsym XF86AudioNext exec cmus-remote -n
+bindsym XF86AudioPlay exec $HOME/scripts/cmus-status.sh --toggle
 bindsym XF86AudioMute exec
 
 # change focus
@@ -148,26 +142,14 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Session exit shourtcut activated. End X Session and return to login screen?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
