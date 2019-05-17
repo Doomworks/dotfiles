@@ -2,30 +2,42 @@
 
 import imaplib
 import json
+import os
+import time
+import subprocess as sp
 from os import environ
 from pathlib import Path
 
 
-CONFIG_DIR = Path(environ['XDG_CONFIG_HOME'], 'mail')
+none = ""
+new = ""
+offline = ""
 
-with open(CONFIG_DIR / 'config.json') as f:
-    config = json.load(f)
+def check_connection():
+    status,result = sp.getstatusoutput("ping -c1 mail.hover.com")
+    return status;
 
-    MAIL_USR = config['mail_usr']
-    MAIL_PASS = config['mail_pass']
+def check_mail():
+    CONFIG_DIR = Path(environ['XDG_CONFIG_HOME'], 'mail')
 
-mail = imaplib.IMAP4_SSL('mail.hover.com', '993')
-mail.login(MAIL_USR, MAIL_PASS)
-mail.select()
+    with open(CONFIG_DIR / 'config.json') as f:
+        config = json.load(f)
+        MAIL_USR = config['mail_usr']
+        MAIL_PASS = config['mail_pass']
 
-label_none = ""
-label_new = ""
+        mail = imaplib.IMAP4_SSL('mail.hover.com', '993')
+        mail.login(MAIL_USR, MAIL_PASS)
+        mail.select()
 
-data = len(mail.search(None, 'UNSEEN')[1][0].split())
 
-if data == 0:
-    label = label_none
-    print(label)
+        data = len(mail.search(None, 'UNSEEN')[1][0].split())
+        return data;
+
+
+if (check_connection() == 0):
+    if check_mail() == 0:
+        print(none)
+    else:
+        print(new,check_mail())
 else:
-    label = label_new
-    print(label, data)
+    print(offline)
