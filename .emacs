@@ -20,6 +20,10 @@
 ;; manager.
 (package-initialize)
 
+;; Set global keybinds
+(global-set-key (kbd "<home>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'end-of-line)
+
 ;; Set Emacs editor variables and mode line theming
 (windmove-default-keybindings)
 (global-display-line-numbers-mode)
@@ -55,7 +59,11 @@
 (cory-reinstall-packages-core)
 
 ;; Modes and Themes
-(use-package rustic :ensure t)
+;;(use-package rustic :ensure t)
+(use-package rust-mode
+  :ensure t
+  :config
+  (add-hook 'rust-mode-hook 'cargo-minor-mode))
 (use-package powerline :ensure t)
 (use-package pug-mode :ensure t)
 (use-package json-mode
@@ -228,6 +236,18 @@
   (defun cory-disable-ac ()
     (interactive)
     (auto-complete-mode 0))
+  (defun cory-run-cargo-build ()
+    "Runs Rust 'cargo build'"
+    (interactive)
+    (cargo-process-build))
+  (defun cory-run-cargo-run ()
+    "Runs Rust 'cargo run'"
+    (interactive)
+    (cargo-process-run))
+  (defun cory-run-cargo-test ()
+    "Runs Rust 'cargo test'"
+    (interactive)
+    (cargo-process-test))
 
   (global-evil-leader-mode)
   (evil-leader/set-leader ",")
@@ -257,7 +277,14 @@
     "4" 'amir-resize-window-horizontal+
     "z" 'amir-zoom-buffer
     "a" 'cory-enable-ac
-    "q" 'cory-disable-ac))
+    "q" 'cory-disable-ac
+    "R" 'cory-cargo-run
+    "B" 'cory-cargo-build
+    "T" 'cory-cargo-test)
+
+  (require 'flymake-lua)
+  (add-hook 'lua-mode-hook 'flymake-lua-load)
+)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -265,7 +292,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (lsp-rust lsp-mode evil-magit arduino-mode stylus-mode json-mode ivy ivy-mode git magit evil-leader evil-escape editorconfig use-package markdown-mode evil ac-emoji))))
+    (cargo lua-mode flymake-lua lsp-rust lsp-mode evil-magit arduino-mode stylus-mode json-mode ivy ivy-mode git magit evil-leader evil-escape editorconfig use-package markdown-mode evil ac-emoji))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
