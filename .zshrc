@@ -113,7 +113,7 @@ export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=/opt/devkitpro/devkitARM
 export DEVKITPPC=/opt/devkitpro/devkitPPC
 
-# rbenv init
+# Initialize rbenv
 eval "$(rbenv init -)"
 export PATH=$HOME/.rbenv/bin:/opt/local/bin:/opt/local/sbin:$PATH
 

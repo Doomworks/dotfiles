@@ -49,7 +49,7 @@ font-1 = FontAwesome:pixelsize=10;2
 
 modules-left = i3
 modules-center =
-modules-right = cpu volume mail battery clock date
+modules-right = cpu volume mail clock date
 
 [module/i3]
 type = internal/i3
@@ -167,9 +167,9 @@ module-margin-right = 2
 font-0 = TamzenForPowerline:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = fshome pkgupdates
+modules-left = battery pkgupdates
 modules-center = cmus-status
-modules-right = publicip
+modules-right = fshome publicip
 tray-position = right
 
 
