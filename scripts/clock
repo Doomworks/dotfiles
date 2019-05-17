@@ -2,8 +2,10 @@
 
 # A basic implementation of Devine's decimal clock
 # https://github.com/hundredrabbits/Clock
-
-v=$(((($(date +%s) - $(date -d 0 +%s)) * 1000) * 10 / 864))
+case $( uname -s ) in
+    Darwin) v=$(((($(gdate +%s) - $(gdate -d 0 +%s)) * 1000) * 10 / 864));;
+    *)      v=$(((($(date +%s) - $(date -d 0 +%s)) * 1000) * 10 / 864));;
+esac
 if (($v <= 9999))
 then
     echo " ${v:0:1}"
