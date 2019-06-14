@@ -26,6 +26,7 @@ alias üwidget='cd ~/Library/Application\ Support/Übersicht/widgets'
 alias cm='cmus'
 alias om='ncmpcpp'
 alias :q='exit'
+alias kg='gpgconf --kill gpg-agent && gpg-agent --daemon && echo "GPG daemon restarted"'
 
 # Youtube-dl aliases
 alias ydb='youtube-dl -f best '$1''
