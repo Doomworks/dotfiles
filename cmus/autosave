@@ -1,4 +1,4 @@
-set aaa_mode=artist
+set aaa_mode=album
 set altformat_current= %F
 set altformat_playlist= %f%= %d
 set altformat_title=%f
@@ -21,9 +21,13 @@ set color_statusline_fg=black
 set color_titleline_attr=default
 set color_titleline_bg=235
 set color_titleline_fg=green
+set color_trackwin_album_attr=bold
+set color_trackwin_album_bg=default
+set color_trackwin_album_fg=default
 set color_win_attr=default
 set color_win_bg=black
 set color_win_cur=green
+set color_win_cur_attr=default
 set color_win_cur_sel_attr=default
 set color_win_cur_sel_bg=240
 set color_win_cur_sel_fg=green
@@ -43,6 +47,16 @@ set color_win_title_bg=240
 set color_win_title_fg=white
 set confirm_run=true
 set continue=true
+set device=/dev/cdrom
+set display_artist_sort_name=false
+set dsp.ao.buffer_size=16384
+set dsp.ao.device_interface=
+set dsp.ao.driver=
+set dsp.ao.wav_counter=1
+set dsp.ao.wav_dir=/Users/cory
+set dsp.coreaudio.device=
+set dsp.coreaudio.enable_hog_mode=false
+set dsp.coreaudio.sync_sample_rate=false
 set follow=false
 set format_current= %a - %l -%3n. %t%= %y
 set format_playlist= %-21%a %3n. %t%= %y %d %{?X!=0?%3X ?    }
@@ -54,11 +68,29 @@ set format_trackwin_album= %l
 set format_trackwin_va=%3n. %t (%a)%= %y %d
 set format_treewin=  %l
 set format_treewin_artist=%a
+set icecast_default_charset=ISO-8859-1
+set id3_default_charset=ISO-8859-1
+set input.aac.priority=50
+set input.cue.priority=50
+set input.flac.priority=50
+set input.mad.priority=55
+set input.mp4.priority=50
+set input.vorbis.priority=50
+set input.wav.priority=50
+set lib_add_filter=
 set lib_sort=albumartist date album discnumber tracknumber title filename play_count
 set mouse=false
+set mpris=true
+set output_plugin=ao
+set passwd=
 set pl_sort=
 set play_library=true
 set play_sorted=false
+set repeat=false
+set repeat_current=false
+set replaygain=disabled
+set replaygain_limit=true
+set replaygain_preamp=0.000000
 set resume=false
 set rewind_offset=5
 set scroll_offset=2
@@ -73,7 +105,9 @@ set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false
 set softvol_state=0 0
+set start_view=tree
 set status_display_program=cmusfm
+set time_show_leading_zero=true
 set wrap_search=true
 bind browser backspace browser-up
 bind browser i toggle show_hidden
