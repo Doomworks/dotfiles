@@ -7,6 +7,10 @@ cmus/command-history
 cmus/search-history
 cmus/lib.pl
 cmus/playlist.pl
+cmus/playlists
+
+# mpd
+.mpd
 
 # ignore socket files
 *.socket
