@@ -1,0 +1,17 @@
+#!/bin/bash
+
+curl -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $DYNDNS_TOKEN" \
+     -X PUT -d '{
+        "type": "A",
+        "name": "gatekeeper",
+        "target": "'$(curl https://ipinfo.io/ip)'",
+        "priority": 10,
+        "weight": 5,
+        "port": 80,
+        "service": null,
+        "protocol": null,
+        "ttl_sec": 300,
+        "tag": null
+     }' \
+     $DYNDNS_RECORD
