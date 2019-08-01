@@ -1,0 +1,9 @@
+mafredri/zsh-async
+Tarrasch/zsh-bd
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+junegunn/fzf
+caarlos0/ports
+
+# Keep this at the bottom, must be sourced last
+zsh-users/zsh-syntax-highlighting
