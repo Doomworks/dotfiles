@@ -6,3 +6,8 @@ ln -s $HOME/dotfiles/env/.pam_environment $HOME/.pam_environment
 ln -s $HOME/dotfiles/env/.emacs $HOME/.emacs
 ln -s $HOME/dotfiles/env/.xinitrc $HOME/.xinitrc
 ln -s $HOME/dotfiles/env/.Xdefaults $HOME/.Xdefaults
+
+# Symlinks to .config
+mkdir $XDG_CONFIG_HOME/polybar && ln -s $HOME/dotfiles/polybar/config $XDG_CONFIG_HOME/polybar/config
+mkdir $XDG_CONFIG_HOME/i3 && ln -s $HOME/dotfiles/i3/config $XDG_CONFIG_HOME/i3/config
+mkdir $XDG_CONFIG_HOME/dunst && ln -s $HOME/dotfiles/dunst/dunstrc $XDG_CONFIG_HOME/dunst/dunstrc
