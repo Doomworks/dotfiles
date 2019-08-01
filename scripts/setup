@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# Setup config files
+ln -s $HOME/dotfiles/env/.zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/env/.pam_environment $HOME/.pam_environment
+ln -s $HOME/dotfiles/env/.emacs $HOME/.emacs
+ln -s $HOME/dotfiles/env/.xinitrc $HOME/.xinitrc
+ln -s $HOME/dotfiles/env/.Xdefaults $HOME/.Xdefaults
