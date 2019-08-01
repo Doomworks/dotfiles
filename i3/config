@@ -46,7 +46,7 @@ hide_edge_borders smart
 exec dunst
 #exec vivaldi-stable
 
-exec_always $HOME/.config/polybar/launch
+exec_always $HOME/dotfiles/polybar/launch
 
 # assign programs to correct workspaces
 assign [class="^Vivaldi$"] → workspace 2
@@ -136,7 +136,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Terminate i3 session and return t login?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Terminate i3 session and return to login?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
