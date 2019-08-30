@@ -1,5 +1,5 @@
 [global]
-    font = TamzenForPowerline 10
+    font = ProggyCleanTTSZBP 12
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -33,7 +33,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<b>%s</b>\n%b\n\n<u>%a</u>"
+    format = "<b>%s</b>\n\n%b\n\n<u>%a</u>"
 
     # Sort messages by urgency.
     sort = yes
