@@ -14,8 +14,8 @@
 ;; all the cool/cutting edge packages that are being used).
 (push '("melpa" . "http://melpa.org/packages/") package-archives)
 (push '("org" . "http://orgmode.org/elpa/") package-archives)
-(push '("melpa-stable" . "https://stable.melpa.org/packages/") package-archives)
-
+(push '("melpa-stable" . "http://stable.melpa.org/packages/") package-archives)
+(push '("gnu" . "http://mirrors.163.com/elpa/gnu/") package-archives)
 ;; After the repositories have been set, initialize the package
 ;; manager.
 (package-initialize)
@@ -31,7 +31,7 @@
 (global-display-line-numbers-mode)
 (electric-pair-mode 1)
 
-(powerline-center-theme)
+;;(powerline-center-theme)
 
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
@@ -294,7 +294,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cargo lua-mode flymake-lua lsp-rust lsp-mode evil-magit arduino-mode stylus-mode json-mode ivy ivy-mode git magit evil-leader evil-escape editorconfig use-package markdown-mode evil ac-emoji))))
+    (nix-mode cargo lua-mode flymake-lua lsp-rust lsp-mode evil-magit arduino-mode stylus-mode json-mode ivy ivy-mode git magit evil-leader evil-escape editorconfig use-package markdown-mode evil ac-emoji))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
