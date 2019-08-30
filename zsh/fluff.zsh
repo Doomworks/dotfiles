@@ -1,11 +1,10 @@
 #Load prompt
-autoload -U promptinit; promptinit
-prompt suse
+autoload -U promptinit; promptinit; prompt suse
 
 # Show correct name on each system
 case $( hostname ) in
     Sol.local) figlet 'Sol'
-               echo 'Welcome /home,' $USER
+               echo 'Welcome home,' $USER
                ;;
     Vega)      figlet 'Vega'
                echo 'Greetings Navigator' $USER
@@ -23,7 +22,10 @@ case $( hostname ) in
                echo 'Hello '$USER', what services do you require today?'
                ;;
     Centarus)  figlet 'Centarus'
-               echo 'Enjoy your stay at our data archive $USER, we have many interesting files'
+               echo 'Enjoy your stay at our data archive '$USER', we have many interesting files'
+               ;;
+    Deneb)     figlet 'Deneb'
+               echo 'Hey '$USER'!'
                ;;
     *)         figlet 'System Unknown'
                echo '[[Error]] {{No system data}} <<Nav marker dropped, awaiting response>>'

@@ -19,3 +19,15 @@ setopt share_history # Share history across terminals
 setopt inc_append_history # Immediately append to the history file, not just when a term is killed
 setopt extended_glob # Use extended globbing syntax
 setopt auto_cd # Auto change to a dir without typing cd
+
+# Bind keys
+# ctrl-left and ctrl-right
+bindkey "\e[1;5D" backward-word
+bindkey "\e[1;5C" forward-word
+# ctrl-bs and ctrl-del
+bindkey "\e[3;5~" kill-word
+bindkey "\C-_"    backward-kill-word
+# del, home and end
+bindkey "\e[3~" delete-char
+bindkey "\e[H"  beginning-of-line
+bindkey "\e[F"  end-of-line
