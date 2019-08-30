@@ -1,3 +1,5 @@
+XTerm*termName: xterm-256color
+
 URxvt*scrollBar: false
 URxvt*internalBorder: 1
 URxvt*font: -*-tamzenforpowerline-medium-*-*-*-14-*-*-*-*-*-*-*, \
