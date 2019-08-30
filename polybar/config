@@ -43,9 +43,8 @@ module-margin-right = 1
 border-top-size = 0
 border-bottom-size = 0
 
-font-0 = Tamzen:pixelsize=12;2
+font-0 = ProggyCleanTTSZBP:anitalias=false:size=12;2
 font-1 = FontAwesome:pixelsize=10;2
-;font-2 = FontAwesome5Brands:pixlesize=10;2
 
 modules-left = i3
 modules-center =
@@ -98,8 +97,7 @@ exec = $HOME/scripts/clock
 [module/date]
 type = custom/script
 interval = 1
-exec =  afiur -sd 1994-11-03
-format-prefix = " "
+exec =  bash $HOME/.afiur -sd 1994-11-03
 
 [module/volume]
 type = internal/volume
@@ -117,9 +115,9 @@ ramp-volume-2 = 
 
 [module/mail]
 type = custom/script
-exec = $HOME/scripts/chkmail
+exec = python3 $HOME/scripts/chkmail
 interval = 5
-click-left = xdg-open https://mail.doomworks.net
+click-left = xdg-open https://mail.hover.com
 
 [module/battery]
 type = internal/battery
@@ -164,12 +162,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = TamzenForPowerline:pixelsize=12;2
+font-0 = ProggyCleanTTSZBP:anitalias=false:size=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = battery pkgupdates
+modules-left = battery
 modules-center = cmus-status
-modules-right = fshome publicip
+modules-right = fshome
 tray-position = right
 
 
@@ -185,7 +183,8 @@ format-prefix = ""
 
 [module/fshome]
 type = internal/fs
-mount-0 = /home
+mount-0 = /
+;mount-1 = /home
 interval = 10
 format-mounted = <label-mounted>
 format-unmounted = <label-unmounted>
