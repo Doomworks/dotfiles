@@ -1,5 +1,3 @@
-#!/bin/bash
-
 curl -H "Content-Type: application/json" \
      -H "Authorization: Bearer $DYNDNS_TOKEN" \
      -X PUT -d '{

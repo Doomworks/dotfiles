@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # A basic implementation of Devine's decimal clock
 # https://github.com/hundredrabbits/Clock
 case $( uname -s ) in

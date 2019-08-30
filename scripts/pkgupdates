@@ -1,4 +1,3 @@
-#!/bin/bash
 pac=$(checkupdates | wc -l)
 
 checkpac=$((pac))
