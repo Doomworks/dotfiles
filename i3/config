@@ -50,6 +50,7 @@ exec_always $HOME/dotfiles/polybar/launch
 
 # assign programs to correct workspaces
 assign [class="^Vivaldi$"] → workspace 2
+assign [class="^Firefox$"] → workspace 2
 
 # media keys
 bindsym XF86AudioPrev exec cmus-remote -r
