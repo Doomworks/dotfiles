@@ -53,6 +53,11 @@ alias naos='ssh naos.local'
 alias vega='ssh vega.local'
 alias cent='ssh centaurus.local'
 
+# NixOS aliases
+alias nrt='sudo nix-rebuild test'
+alias nrs='sudo nix-rebuild switch'
+alias nrb='sudo nix-rebuild switch --rollback'
+
 # Aria2c aliases
 alias a2ct='aria2c -d /Volumes/Sol\ \|\ Orbit/Torrents/ $1' # Download torrent using aria2c
 
