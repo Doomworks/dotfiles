@@ -250,6 +250,12 @@
     "Runs Rust 'cargo test'"
     (interactive)
     (cargo-process-test))
+  (defun turn-on-vlm ()
+    (interactive)
+    (visual-line-mode 1))
+  (defun turn-off-vlm ()
+    (interactive)
+    (visual-line-mode 0))
 
   (global-evil-leader-mode)
   (evil-leader/set-leader ",")
@@ -282,7 +288,9 @@
     "q" 'cory-disable-ac
     "R" 'cory-cargo-run
     "B" 'cory-cargo-build
-    "T" 'cory-cargo-test)
+    "T" 'cory-cargo-test
+    "L" 'turn-on-vlm
+    "l" 'turn-off-vlm)
 
   (require 'flymake-lua)
   (add-hook 'lua-mode-hook 'flymake-lua-load)
