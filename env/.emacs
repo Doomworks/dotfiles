@@ -14,7 +14,7 @@
 ;; all the cool/cutting edge packages that are being used).
 (push '("melpa" . "http://melpa.org/packages/") package-archives)
 (push '("org" . "http://orgmode.org/elpa/") package-archives)
-(push '("melpa-stable" . "http://stable.melpa.org/packages/") package-archives)
+(push '("melpa-stable" . "https://stable.melpa.org/packages/") package-archives)
 (push '("gnu" . "http://mirrors.163.com/elpa/gnu/") package-archives)
 ;; After the repositories have been set, initialize the package
 ;; manager.
