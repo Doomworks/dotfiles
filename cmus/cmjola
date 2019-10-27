@@ -1,0 +1,44 @@
+#!/usr/bin/perl
+# cmjola, Cmus -> Maloja Scrobbler
+#
+# Author: Cory Driscoll <cory@drisc.io>
+# Date: 2019-10-27
+
+use LWP::UserAgent;
+use HTTP::Request::Common;
+
+my $ua = LWP::UserAgent->new;
+
+%rc = (
+    token => "your-api-key"
+    );
+
+# Maloja instance hostname (default is set to localhost)
+my $maloja_srv = "http://localhost:42010/api/newscrobble";
+
+# Get data from Cmus
+my %data = @ARGV;
+
+# Make list from Cmus data and include api key
+# (album is not currently suported by Maloja but may be in the future)
+my %track = (
+    artist => $data{artist},
+    #album => $data{album},
+    title => $data{title},
+    key => $rc{token},
+    );
+
+# Set up HTTP request, pass hostname and list of data
+my $req = HTTP::Request::Common::POST($maloja_srv, [%track]);
+
+print $req;
+
+my $resp = $ua->request($req);
+if ($resp->is_success) {
+    my $message = $resp->decoded_content;
+    print "Received reply: $message\n";
+}
+else {
+    print "POST error: ", $resp->code, "\n";
+    print "POST error message: ", $resp->message, "\n";
+}
