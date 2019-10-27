@@ -92,7 +92,7 @@ ws-icon-9 = 10;10
 [module/clock]
 type = custom/script
 interval = 1
-exec = $HOME/scripts/clock
+exec = bash $HOME/scripts/clock
 
 [module/date]
 type = custom/script
@@ -209,5 +209,3 @@ type = custom/script
 exec = $HOME/scripts/pkgupdates
 interval = 10
 click-left = bash $HOME/scripts/pkgupdates
-
-vim:ft=dosini
