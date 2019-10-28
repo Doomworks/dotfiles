@@ -115,7 +115,7 @@ ramp-volume-2 = 
 
 [module/mail]
 type = custom/script
-exec = python3 $HOME/scripts/chkmail
+exec = perl $HOME/scripts/chkmail
 interval = 5
 click-left = xdg-open https://mail.hover.com
 

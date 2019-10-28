@@ -4,7 +4,7 @@ use Mail::IMAPClient;
 
 %rc = (
     host => "",
-    user => "",
+    user => "", # Remember to escape the @ symbol
     pass => "",
     );
 
