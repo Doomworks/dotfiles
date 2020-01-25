@@ -1,0 +1,10 @@
+#!/bin/perl
+# Author: Cory Driscoll <cory@drisc.io>
+# A basic implementation of Devine's decimal clock
+use POSIX qw(strftime);
+
+$epoc = time();
+
+$clock = $epoc - strftime "%a %b %e 00:00:00 %Y", gmtime;
+
+printf("$epoc\n");
