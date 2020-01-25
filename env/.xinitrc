@@ -37,7 +37,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # Set background on wm start
-feh ~/.wallpapers/peticur-beach.jpg --bg-fill
+feh ~/.wallpapers/wallhaven-zm26lg.jpg --bg-fill
 
 exec i3
 
