@@ -63,3 +63,10 @@ alias a2ct='aria2c -d /Volumes/Sol\ \|\ Orbit/Torrents/ $1' # Download torrent u
 
 # Plex Media Scanner
 alias pms="/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner" # Force rescan of plex files
+
+# 32-blit dev aliases
+alias bdu="sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D"
+alias bdf="mkdir build.stm32 && cd build.stm32"
+alias bdm="cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../32blit.toolchain && make"
+alias bdr="cmake .. && make"
+alias bcf="mkdir build && build"
