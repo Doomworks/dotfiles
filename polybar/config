@@ -101,10 +101,7 @@ exec =  bash $HOME/.afiur -sd 1994-11-03
 
 [module/volume]
 type = internal/volume
-
-label-volume = %percentage%%
-label-volume-forground = ${colors.3}
-format-volume = <ramp-volume><label-volume>
+format-volume = <ramp-volume>
 
 label-muted = 
 format-muted-padding = 1
