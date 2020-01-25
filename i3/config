@@ -80,7 +80,14 @@ for_window [title="Steam - Update News"] kill
 bindsym XF86AudioPrev exec cmus-remote -r
 bindsym XF86AudioNext exec cmus-remote -n
 bindsym XF86AudioPlay exec $HOME/scripts/cmus-status.sh --toggle
-bindsym XF86AudioMute exec
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# system keys
+bindsym XF86Launch1 exec firefox
+
 
 # change focus
 bindsym $mod+j focus left
