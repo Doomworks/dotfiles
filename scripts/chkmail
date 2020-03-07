@@ -11,15 +11,18 @@ use Mail::IMAPClient;
 my $imap = Mail::IMAPClient->new(
     Server => $rc{host},
     User => $rc{user},
-    Password => $rc{pass}
+    Password => $rc{pass},
+    Port => 993,
+    Authmechanism => "PLAIN",
+    Ssl => 1,
     ) or die "\n";
 
 foreach my $f ($imap->folders("INBOX")) {
     if ($imap->unseen_count($f)==0) {
-        print "\n";
+        print "\n";
     } else {
-        print " ",
-            $imap->unseen_count($f),
+        print "",
+            #$imap->unseen_count($f),
             "\n";
     }
 }

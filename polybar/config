@@ -33,9 +33,10 @@ width = 100%
 height = 25
 background = ${colors.9}
 foreground = ${colors.3}
+fixed-center=true
 
 spacing = 1
-padding-left = 0
+padding-left = 1
 padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
@@ -46,9 +47,9 @@ border-bottom-size = 0
 font-0 = ProggyCleanTTSZBP:anitalias=false:size=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = i3
-modules-center =
-modules-right = cpu volume mail clock date
+modules-left = clock pomodoro
+modules-center = i3
+modules-right = date
 
 [module/i3]
 type = internal/i3
@@ -93,11 +94,20 @@ ws-icon-9 = 10;10
 type = custom/script
 interval = 1
 exec = bash $HOME/scripts/clock
+click-left = perl ~/dotfiles/scripts/pomodoro.pl > /tmp/pomo.out &
+
+[module/pomodoro]
+type = custom/script
+interval = 1
+exec = tail -1 /tmp/pomo.out | head -1
+click-left = pkill perl && echo "\n" >> /tmp/pomo.out
 
 [module/date]
 type = custom/script
 interval = 1
 exec =  bash $HOME/.afiur -sd 1994-11-03
+click-left = mkdir -p ~/journal/$(~/.afiur -sd 1994-11-03) && xterm -T "$(~/.afiur -sd 1994-11-03) - Journal" -e emacs -nw ~/journal/$(~/.afiur -sd 1994-11-03)/entry
+click-right = mkdir -p ~/journal/$(~/.afiur -sd 1994-11-03) && xterm -T "$(~/.afiur -sd 1994-11-03) - Notes" -e emacs -nw ~/journal/$(~/.afiur -sd 1994-11-03)/notes
 
 [module/volume]
 type = internal/volume
@@ -114,7 +124,7 @@ ramp-volume-2 = 
 type = custom/script
 exec = perl $HOME/scripts/chkmail
 interval = 5
-click-left = xdg-open https://mail.hover.com
+click-left = xdg-open https://webmail.migadu.com
 
 [module/battery]
 type = internal/battery
@@ -152,19 +162,20 @@ width = 100%
 height = 18
 background = ${colors.9}
 foreground = ${colors.3}
+fixed-center = true
 
 spacing = 1
 padding-left = 1
-padding-right = 2
+padding-right = 1
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = ProggyCleanTTSZBP:anitalias=false:size=12;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = battery
-modules-center = cmus-status
-modules-right = fshome
+modules-left = cmus-status
+modules-center =
+modules-right = mail battery
 tray-position = right
 
 
@@ -176,33 +187,13 @@ interval = 0.5
 scroll-up = cmus-remote -n
 scroll-down = cmus-remote -r
 click-left = ~/scripts/cmus-status.sh --toggle
-format-prefix = ""
 
-[module/fshome]
+[module/fs]
 type = internal/fs
 mount-0 = /
-;mount-1 = /home
 interval = 10
 format-mounted = <label-mounted>
 format-unmounted = <label-unmounted>
-label-mounted = " %percentage_used%%/%total%"
-label-unmounted = " Something has gone very wrong"
+label-mounted = "%percentage_used%%"
+label-unmounted = " Disk not mounted"
 label-unmounted-forground = ${colors.5}
-
-[module/ip]
-type = custom/script
-exec = $HOME/scripts/ip
-interval = 30
-format-prefix = " "
-
-[module/publicip]
-type = custom/script
-exec = wget -qO- ipinfo.io/ip
-interval = 1000
-format-prefix = " "
-
-[module/pkgupdates]
-type = custom/script
-exec = $HOME/scripts/pkgupdates
-interval = 10
-click-left = bash $HOME/scripts/pkgupdates

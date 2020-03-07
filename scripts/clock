@@ -9,7 +9,7 @@ then
     echo " ${v:0:1}"
 elif (($v >= 10000 && $v <= 99999))
 then
-    echo " ${v:0:2}"
+    echo "${v:0:2}"
 else
-    echo " ${v:0:3}"
+    echo "${v:0:3}"
 fi

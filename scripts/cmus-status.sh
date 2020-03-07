@@ -10,7 +10,7 @@ case "$1" in
         ;;
     *)
         if cmus-remote -Q | grep -q 'status playing'; then
-            cmus-remote -Q | grep -m2 -e artist -e title | awk '{$1=""; $2=""; print}' ORS=''
+            cmus-remote -Q | grep tag | head -n 3 | cut -d ' ' -f 3- | awk '{print}' ORS=' | ' | sed '$s/..$//' && sh ~/dotfiles/scripts/cmus-pos.sh
         fi
         ;;
 esac

@@ -1,16 +1,12 @@
 XTerm*termName: xterm-256color
 
-URxvt*scrollBar: false
-URxvt*internalBorder: 1
-URxvt*font: -*-tamzenforpowerline-medium-*-*-*-14-*-*-*-*-*-*-*, \
-            -wuncon-siji-medium-r-normal--10-*-*-*-*-*-*-*, \
-            xft:FontAwesome-11,
-URxvt*letterSpace: 0
-URxvt*cursorBlink: true
-
-
-*.foreground:   #a8a19f
-*.background:   #212121
+XTerm*scrollBar: false
+XTerm*borderWidth: 0
+XTerm.vt100.faceName: xft:ProggyCleanTTSZBP:antialias=false:pixelsize=16, xft:FontAwesome:pixelsize=11
+XTerm*selectToClipboard: true
+XTerm*allowBoldFonts: false
+XTerm*Background:   #000000
+XTerm*Foreground:   #eeeeee
 !*.cursorColor:  #a8a19f
 
 ! black
