@@ -12,6 +12,12 @@ case $( uname -s ) in
     *)      alias love='$HOME/.love/love';;
 esac
 
+# mpv aliases
+mpvStream() {
+    mpv --title="Stream Window" "$1" > /tmp/mpv.log &
+}
+alias mps='mpvStream'
+
 # Youtube-dl aliases
 alias ydb='youtube-dl -f best '$1'' # Download at best quality, doesn't always work
 alias ydg='youtube-dl -f 1080 '$1'' # Download at 1080, should work for things ydb doesn't
