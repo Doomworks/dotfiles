@@ -27,7 +27,7 @@ bindsym $mod+Shift+q kill
 # rofi windows (run, window-switcher, ssh)
 bindsym $mod+p exec rofi -show run -font "ProggyCleanTTSZBP 12" -lines 6 -i
 bindsym $mod+Tab exec --no-startup-id exec rofi -show window -font "ProggyCleanTTSZBP 12" -lines 6
-bindsym $mod+c exec rofi -show ssh
+bindsym $mod+c exec rofi -show ssh -font "ProggyCleanTTSZBP 12" -lines 6 -i
 
 # system options
 set $mode_system System (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
@@ -75,8 +75,8 @@ for_window [class=".*"] border pixel 2
 for_window [window_role="PictureInPicture"] sticky enable, floating enable, border none, resize set 426 240#, move down 100 px, move right 212 px
 for_window [class="feh|mpv|Pavucontrol|Steam"] floating enable
 for_window [title="Steam - Update News"] kill
-for_window [title="- Journal|- Notes"] floating enable, border pixel 5, resize set 600 400
-
+for_window [title="- Journal|- Notes"] floating enable, border pixel 5, resize set 600 400, move position center
+for_window [title="Stream Window"] floating enable, border none, resize set 855 480, move position center
 
 # media keys
 bindsym XF86AudioPrev exec cmus-remote -r
@@ -88,7 +88,9 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # system keys
-bindsym XF86Launch1 exec firefox
+#bindsym $mod+F1 exec wiki-search
+bindsym $mod+F2 exec firefox
+bindsym $mod+F3 exec rofi -run-list-command ". ~/scripts/rofi-zsh-aliases" -run-command "/bin/zsh -i -c '{cmd}'" -rnow -show run
 
 
 # change focus
