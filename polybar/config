@@ -16,7 +16,6 @@ margin-bottom = 2
 [settings]
 throttle-output = 5
 throttle-output-for = 10
-
 throttle-input-for = 30
 
 screenchange-reload = true
@@ -25,7 +24,6 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 [bar/top]
-;monitor = ${env:MONITOR}
 monitor-strict = true
 dpi =  96
 bottom = false
@@ -120,39 +118,6 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-[module/mail]
-type = custom/script
-exec = perl $HOME/scripts/chkmail
-interval = 5
-click-left = xdg-open https://webmail.migadu.com
-
-[module/battery]
-type = internal/battery
-
-battery = BAT0
-adapter = AC
-
-full-at = 96
-label-full = 
-label-full-foreground = ${colors.6}
-
-format-charging = <animation-charging><label-charging>
-animation-charging-0 = 
-animation-charging-0-foreground = ${colors.6}
-animation-charging-1 = 
-animation-charging-framerate = 700
-
-format-discharging = <ramp-capacity><label-discharging>
-ramp-capacity-0 = 
-ramp-capacity-0-foreground = ${colors.5}
-ramp-capacity-1 = 
-ramp-capacity-1-foreground = ${colors.5}
-ramp-capacity-2 = 
-ramp-capacity-2-foreground = ${colors.6}
-ramp-capacity-3 = 
-ramp-capacity-3-foreground = ${colors.7}
-ramp-capacity-4 = 
-ramp-capacity-4-foreground = ${colors.7}
 
 [bar/bottom]
 monitor-strict = true
@@ -188,12 +153,36 @@ scroll-up = cmus-remote -n
 scroll-down = cmus-remote -r
 click-left = ~/scripts/cmus-status.sh --toggle
 
-[module/fs]
-type = internal/fs
-mount-0 = /
-interval = 10
-format-mounted = <label-mounted>
-format-unmounted = <label-unmounted>
-label-mounted = "%percentage_used%%"
-label-unmounted = " Disk not mounted"
-label-unmounted-forground = ${colors.5}
+[module/mail]
+type = custom/script
+exec = perl $HOME/scripts/chkmail
+interval = 5
+click-left = xdg-open https://webmail.migadu.com
+
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = AC
+
+full-at = 96
+label-full = 
+label-full-foreground = ${colors.6}
+
+format-charging = <animation-charging><label-charging>
+animation-charging-0 = 
+animation-charging-0-foreground = ${colors.6}
+animation-charging-1 = 
+animation-charging-framerate = 700
+
+format-discharging = <ramp-capacity><label-discharging>
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.5}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.5}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.6}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.7}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.7}
