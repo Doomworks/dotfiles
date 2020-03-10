@@ -63,7 +63,8 @@ assign [class="^Discord$"] → workspace 9
 
 for_window [class=".*"] border pixel 2
 for_window [window_role="PictureInPicture"] sticky enable, floating enable, border none, resize set 426 240#, move down 100 px, move right 212 px
-for_window [class="feh|mpv|Pavucontrol|Steam"] floating enable
+for_window [class="feh|Pavucontrol|Steam"] floating enable
+for_window [class="mpv"] floating enable, resize set 1276 720, move position center
 for_window [title="Steam - Update News"] kill
 for_window [title="- Journal|- Notes"] floating enable, border pixel 5, resize set 600 400, move position center
 for_window [title="Stream Window"] floating enable, border none, resize set 855 480, move position center
