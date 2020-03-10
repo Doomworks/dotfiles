@@ -14,7 +14,7 @@ esac
 
 # mpv aliases
 mpvStream() {
-    mpv --title="Stream Window" "$1" > /tmp/mpv.log &
+    mpv --title="Stream Window" "$1" --term-status-msg="" > /tmp/mpv.log &
 }
 alias mps='mpvStream'
 
