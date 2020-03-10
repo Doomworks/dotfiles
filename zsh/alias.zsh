@@ -20,13 +20,13 @@ alias mps='mpvStream'
 
 # Youtube-dl aliases
 ytdlBest() {
-    youtube-dl -o "$HOME/Videos/Youtube/%(uploader)s/%(title)s-%(id)s.%(ext)s"  -f best "$1"
+    youtube-dl -o "$HOME/Videos/Youtube/%(uploader)s/%(title)s-%(id)s.%(ext)s" -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
 }
 ytdlPlaylist() {
-    youtube-dl -o "$HOME/Videos/Youtube/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s-%(id)s.%(ext)s"  -f best "$1"
+    youtube-dl -o "$HOME/Videos/Youtube/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s-%(id)s.%(ext)s"  -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
 }
-alias ydb='ytdlBest'     # Download at best quality, doesn't always work
-alias ydp='ytdlPlaylist' # Download at 1080, should work for things ydb doesn't
+alias ydb='ytdlBest'     # Download video and audio at best quality, merges to .mp4 files(requires ffmpeg)
+alias ydp='ytdlPlaylist' # Download playlist, same as other script
 
 # Tmux aliases
 alias txn='tmux new -s'
