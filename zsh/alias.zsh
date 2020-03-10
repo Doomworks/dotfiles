@@ -42,6 +42,7 @@ alias gic='git commit -S -m'
 alias gip='git push'
 
 alias gtc='git clone'
+alias gts='git status'
 
 # Rust aliases
 alias cgn='cargo new'
