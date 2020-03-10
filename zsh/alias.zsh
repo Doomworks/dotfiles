@@ -19,8 +19,14 @@ mpvStream() {
 alias mps='mpvStream'
 
 # Youtube-dl aliases
-alias ydb='youtube-dl -f best '$1'' # Download at best quality, doesn't always work
-alias ydg='youtube-dl -f 1080 '$1'' # Download at 1080, should work for things ydb doesn't
+ytdlBest() {
+    youtube-dl -o "$HOME/Videos/Youtube/%(uploader)s/%(title)s-%(id)s.%(ext)s"  -f best "$1"
+}
+ytdlPlaylist() {
+    youtube-dl -o "$HOME/Videos/Youtube/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s-%(id)s.%(ext)s"  -f best "$1"
+}
+alias ydb='ytdlBest'     # Download at best quality, doesn't always work
+alias ydp='ytdlPlaylist' # Download at 1080, should work for things ydb doesn't
 
 # Tmux aliases
 alias txn='tmux new -s'
