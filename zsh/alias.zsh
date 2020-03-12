@@ -20,10 +20,10 @@ alias mps='mpvStream'
 
 # Youtube-dl aliases
 ytdlBest() {
-    youtube-dl -o "$YTDL_LOC/%(uploader)s/%(title)s-%(id)s.%(ext)s" -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
+    youtube-dl -o "$YTDL_DIR/%(uploader)s/%(title)s-%(id)s.%(ext)s" -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
 }
 ytdlPlaylist() {
-    youtube-dl -o "$YTDL_LOC/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s-%(id)s.%(ext)s"  -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
+    youtube-dl -o "$YTDL_DIR/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s-%(id)s.%(ext)s"  -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
 }
 alias ydb='ytdlBest'     # Download video and audio at best quality, merges to .mp4 files(requires ffmpeg)
 alias ydp='ytdlPlaylist' # Download playlist, same as other script
@@ -72,7 +72,7 @@ alias nrs='sudo nix-rebuild switch'
 alias nrb='sudo nix-rebuild switch --rollback'
 
 # Aria2c aliases
-alias a2ct='aria2c -d /Volumes/Sol\ \|\ Orbit/Torrents/ $1' # Download torrent using aria2c
+alias a2ct='aria2c -d $TORRENT_BASE_DIR $1' # Download torrent using aria2c
 
 # Plex Media Scanner
 alias pms="/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner" # Force rescan of plex files
