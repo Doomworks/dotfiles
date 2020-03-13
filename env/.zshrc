@@ -11,6 +11,8 @@ export YTDL_DIR=""
 export TORRENT_BASE_DIR=""
 
 # Logins
+# Remember to escape any symbols in the username or password
+
 export MAIL_USR=""
 export MAIL_PASS=""
 export MAIL_HOST=""
