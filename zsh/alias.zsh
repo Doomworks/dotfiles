@@ -7,6 +7,9 @@ alias :q='exit' # Kill session with a vim command :)
 alias kg='gpgconf --kill gpg-agent && gpg-agent --daemon && echo "GPG daemon restarted"' # Restart gpg-agent in current shell, needed to fix cli passcode entry
 alias zp='antibody bundle < ~/dotfiles/zsh/zsh-plugins > ~/.zsh_plugins.sh && source ~/.zsh_plugins.sh' # Update static zsh plugin file
 
+alias lsa='ls -al'
+alias rmf='rm -rf'
+
 case $( uname -s ) in
     Darwin) alias love='/Applications/love.app/Contents/MacOS/love';;
     *)      alias love='$HOME/.love/love';;
