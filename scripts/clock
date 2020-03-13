@@ -6,7 +6,7 @@ case $( uname -s ) in
 esac
 if (($v <= 9999))
 then
-    echo " ${v:0:1}"
+    echo "${v:0:1}"
 elif (($v >= 10000 && $v <= 99999))
 then
     echo "${v:0:2}"
